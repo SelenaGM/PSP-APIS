@@ -1,0 +1,111 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Edit Game</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px">
+    <form [formGroup]="gameForm" (submit)="editGame()">
+      <mat-grid-list cols="6" rowHeight="70px">
+        <mat-grid-tile [colspan]="1" [rowspan]="5">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho80">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" type="text" matInput>
+            <!-- Mensajes de error del formulario -->
+
+            <div *ngIf="title.invalid && (title.dirty ||
+
+title.touched)" class="alert">
+
+              <div *ngIf="title.errors.required ||
+
+title.errors.notOnlyWhiteSpace">
+
+                Title es obligatorio.
+              </div>
+              <div *ngIf="title.errors.minlength">
+                Mínimo 2 caracteres.
+              </div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img [src]="gameForm.value.image? gameForm.value.image :
+
+'assets/no-image.png'" alt="No image">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="5">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho80">
+            <mat-label>Subtitle</mat-label>
+            <input formControlName="subtitle" type="text" matInput>
+            <div *ngIf="subtitle.invalid && (subtitle.dirty ||
+
+subtitle.touched)" class="alert">
+
+              <div *ngIf="subtitle.errors.required ||
+
+subtitle.errors.notOnlyWhiteSpace">
+                Subtitle es obligatorio.
+              </div>
+              <div *ngIf="subtitle.errors.minlength">
+                Mínimo 2 caracteres.
+              </div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho80">
+            <mat-label>Description</mat-label>
+            <input formControlName="description" type="text"
+
+                   matInput>
+
+            <div *ngIf="description.invalid && (description.dirty
+
+|| description.touched)" class="alert">
+
+              <div *ngIf="description.errors.required ||
+
+description.errors.notOnlyWhiteSpace">
+                Description es obligatorio.
+              </div>
+              <div *ngIf="description.errors.minlength">
+                Mínimo 2 caracteres.
+              </div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+          <mat-form-field class="ancho80">
+            <mat-label>Image</mat-label>
+            <input formControlName="image" type="text" matInput>
+            <div *ngIf="image.invalid && (image.dirty ||
+
+image.touched)" class="alert">
+
+              <div *ngIf="image.errors.required ||
+
+image.errors.notOnlyWhiteSpace">
+                Image es obligatorio.
+              </div>
+              <div *ngIf="image.errors.minlength">
+                Mínimo 2 caracteres.
+              </div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+          <button mat-raised-button color="accent"
+                  routerLink="/games" style="margin-right: 10px">Back</button>
+          <button mat-raised-button color="primary"
+
+                  [disabled]="!gameForm.valid" type="submit">Save</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

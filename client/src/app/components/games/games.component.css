@@ -1,0 +1,28 @@
+.example-spacer{
+  flex: 1 1 auto;
+}
+.example-full-width{
+  width: 50%;
+  max-width: 200px;
+}
+
+.mySearch{
+  position: relative;
+  left: -5px;
+  top: 9px
+}
+
+ng-form{
+  margin-left: 20px;
+  width: 100%;
+}
+
+mat-card{
+  padding: 10px;
+  width: 90%;
+
+}
+
+mat-card-content{
+  margin-top:15px
+}

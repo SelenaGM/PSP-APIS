@@ -1,0 +1,56 @@
+<mat-toolbar>
+  <span>All games</span>
+  <button (click)="favoriteList()" mat-icon-button color="warn"
+          aria-label="Heart Icon">
+      <mat-icon *ngIf="!favorites" fontIcon="favorite_border"></mat-icon>
+    <mat-icon *ngIf="favorites" fontIcon="favorites"> </mat-icon>
+  </button>
+
+  <!--El buscador -->
+  <ng-form (ngSubmit)="search($event)">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input type="search" matInput placeholder="Buscar"
+             #searchInput (keyup)="search(searchInput.value)">
+      <!--El icono de la lupa -->
+      <button (click)="search($event)" mat-icon-button color="warn" class="mySearch" aria-label="Search icon"></button>
+      <mat-icon>search</mat-icon>
+    </mat-form-field>
+  </ng-form>
+</mat-toolbar>
+
+<mat-grid-list cols="4" rowHeight="450px">
+  <mat-grid-tile colspan="1" rowspan="1" *ngFor="let item of itemList">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          {{item.title}}
+          <span>
+            <button color="warn" mat-icon-button aria-label="Heart icon">
+              <mat-icon (click)="changeFavorite(item)"
+                        *ngIf="item.favorite">favorite</mat-icon>
+              <mat-icon (click)="changeFavorite(item)"
+                        *ngIf="!item.favorite">favorite_border</mat-icon>
+            </button>
+          </span>
+        </mat-card-title>
+        <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+      </mat-card-header>
+      <img matCardImage [src]="item.image" style="max-height: 200px">
+      <mat-card-content>
+        <p>{{item.description}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" [routerLink]="'/games/edit/' +item.id">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="primary">
+          <mat-icon>share</mat-icon>
+        </button>
+        <button (click)="deleteGame(item)" color="warn" mat-icon-button aria-label="trash">
+          <mat-icon >delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

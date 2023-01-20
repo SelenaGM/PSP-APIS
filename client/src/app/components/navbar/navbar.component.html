@@ -1,0 +1,9 @@
+<mat-tab-group [(selectedIndex)]="myIndex" (selectedIndexChange)="reload()" mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="All Games">
+    <app-games></app-games>
+  </mat-tab>
+  <mat-tab label="Add Games">
+    <app-individual></app-individual>
+  </mat-tab>
+
+</mat-tab-group>

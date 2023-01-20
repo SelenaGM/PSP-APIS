@@ -1,0 +1,14 @@
+.ancho80{
+  width: 95%;
+}
+img{
+  max-width: 750px;
+}
+.alert {
+  position: relative;
+  padding: 0 1rem 0;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  color: red;
+  font-size: .8em;
+}
