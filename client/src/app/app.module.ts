@@ -23,15 +23,15 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BooksComponent,
-    EditGameComponent,
-    GamesComponent,
-    IndividualComponent,
-    NavbarComponent,
-    ToolbarComponent
-  ],
+    declarations: [
+        AppComponent,
+        BooksComponent,
+        EditGameComponent,
+        GamesComponent,
+        IndividualComponent,
+        NavbarComponent,
+        ToolbarComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -53,7 +53,10 @@ import {MatCardModule} from "@angular/material/card";
         ReactiveFormsModule
 
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    exports: [
+        NavbarComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
